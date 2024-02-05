@@ -1,0 +1,19 @@
+---
+  - name: Update files
+    hosts: all
+    tasks:
+      - name: "copy html file"
+        copy:
+         src=/etc/hosts
+         dest=/etc/host_20May2023bkp
+         remote_src=yes
+         directory_mode=yes
+      - name: "Make sure an entry in /etc/hosts exists"
+        become: yes
+        become_user: root
+        tags: network,hostname,dns
+        lineinfile:
+          path: /etc/hosts
+          regexp: '^192(.*)$'
+          line: "{{ ansible_default_ipv4.address }} {{ ansible_fqdn|upper }} {{ ansible_hostname }}"
+          state: present

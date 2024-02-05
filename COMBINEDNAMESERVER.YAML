@@ -1,0 +1,15 @@
+  - name: Update files
+    hosts: all
+    tasks:
+      - name: "Move the file"
+        shell:
+         "mv /etc/resolv.conf /etc/resolv.conf_bk"
+      - name: copying file with playbook
+        become: true
+        copy:
+         src: /tmp/resolv.conf
+         dest: /etc/resolv.conf
+         owner: root
+         group: root
+         mode: 0644
+
