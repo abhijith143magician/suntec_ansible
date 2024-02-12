@@ -1,4 +1,0 @@
-- hosts: all
-  tasks:
-  - name : Install vim package
-    yum: name=vim state=present update_cache=true
