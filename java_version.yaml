@@ -1,7 +1,0 @@
----
-- name: Shell module example
-  hosts: all
-  tasks:  
-  - name: Check system information
-    shell: java -version
-    register: java_version

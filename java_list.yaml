@@ -1,0 +1,8 @@
+---
+- name: Java 8 list
+  hosts: all
+  tasks:  
+  - name: Check java list
+    shell: ls -ld /usr/java/jdk1.8*
+    register: java_list
+  - debug: var=java_list
