@@ -5,8 +5,8 @@
   
   - name: Check system information
     shell:
-        "last -F | grep -v root | grep -v reboot |head"
-    register: Last_login
+        "java -version"
+    register: java_version
     
   - debug:
-        msg: "{{Last_login.stdout_lines}}"
+        msg: "{{java_version.stdout_lines}}"
