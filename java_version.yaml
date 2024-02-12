@@ -5,5 +5,3 @@
   - name: Check system information
     shell: java -version
     register: java_version
-  - debug:
-        msg: "{{java_version.stdout_lines}}"
