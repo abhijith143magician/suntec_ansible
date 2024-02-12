@@ -1,0 +1,12 @@
+---
+- name: Shell module example
+  hosts: all
+  tasks:
+  
+  - name: Check system information
+    shell:
+        "last -F | grep -v root | grep -v reboot |head"
+    register: Last_login
+    
+  - debug:
+        msg: "{{Last_login.stdout_lines}}"
