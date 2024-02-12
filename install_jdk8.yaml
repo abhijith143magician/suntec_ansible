@@ -3,3 +3,5 @@
   - name : Install openjdk package
     yum: name={{ item }} state=latest update_cache=true
     loop: [java-1.8.0-openjdk, java-1.8.0-openjdk-devel]
+    register: yum_output
+  - debug: var=yum_output
