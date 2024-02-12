@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+  - name : Install openjdk package
+    yum: name={{ item }} state=latest update_cache=true
+    loop: [java-1.8.0-openjdk, java-1.8.0-openjdk-devel]
